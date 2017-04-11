@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  background: #FFC125;
+  color: #FFF;
+  font-family: Verdana, sans-serif;
+}
+
+.page-header {
+  width: 100%;
+  background: #EE0000;
+  height: 60px;
+  line-height: 60px;
+  font-size: 18px;
+}
+
+.page-nav {
+  float: left;
+}
+
+.page-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.page-nav ul li {
+  float: left;
+}
+
+.page-nav ul li + li {
+  border-left: 1px solid #fff;
+}
+
+.page-header a {
+  display: block;
+  padding: 0 20px;
+  height: 60px;
+  color: #fff;
+}
+
+.page-header a:hover {
+  text-decoration: none;
+}
+
+.auth {
+  float: right;
+}
+
+.auth a {
+  display: inline-block;
+}
+
+.content {
+  padding: 40px 20px;
+}
+
+.content h1 {
+
+}

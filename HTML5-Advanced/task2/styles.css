@@ -1,0 +1,69 @@
+body {
+  font-family: Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  width: 700px;
+  margin: 0 auto;
+}
+
+.number-input {
+  width: 200px;
+  display: block;
+  margin: 20px auto 0;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  font-size: 24px;
+  font-weight: 500;
+  padding: 0;
+  border: 2px solid #11AA00;
+}
+
+.controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.control {
+  text-align: center;
+  height: 40px;
+  font-size: 18px;
+  background: #FFFFFF;
+  padding: 0;
+  display: block;
+}
+
+.control:hover {
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.main-control {
+  width: 200px;
+  border: 2px solid #DDAA00;
+  color: #DDAA00;
+}
+
+.main-control:hover {
+  background: #DDAA00;
+}
+
+.test-control {
+  display: none;
+  color: #FF0000;
+  border: 2px solid #FF0000;
+  margin: 0 auto;
+}
+
+.test-control:hover {
+  background: #FF0000;
+}
+
+.result {
+  margin: 20px 0;
+  text-align: center;
+  line-height: 20px;
+}

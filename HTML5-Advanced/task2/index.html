@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <input type="number" id="input" class="number-input">
+        <div class="controls">
+            <button id="launch" class="control main-control">Launch WW</button>
+            <button id="count" class="control main-control">Show result</button>
+            <button id="stop" class="control main-control">Stop WW</button>
+        </div>
+        <div id="result" class="result"></div>
+        <button id="test" class="control test-control">Do smth. in current thread</button>
+    </div>
+    <script>
+        (function() {
+            const launch = document.querySelector('#launch');
+            const count = document.querySelector('#count');
+            const stop = document.querySelector('#stop');
+            const input = document.querySelector('#input');
+            const test = document.querySelector('#test');
+            if (window.Worker) {
+                var worker = new Worker("task.js");
+                launch.addEventListener('click', function() {
+                    worker.postMessage({'command': 'launch'});
+                });
+                count.addEventListener('click', function() {
+                    worker.postMessage({'command': 'count', 'input': input.value});
+                    test.style.display = 'block';
+                });
+                stop.addEventListener('click', function() {
+                    worker.postMessage({'command': 'stop'});
+                    test.style.display = 'none';
+                });
+
+                worker.addEventListener('message', function(e) {
+                    document.querySelector('#result').textContent = e.data;
+                }, false);
+            }
+            test.addEventListener('click', function() {
+                alert('This one is from the main tread');
+            });
+        })();
+    </script>
+</body>
+</html>

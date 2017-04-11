@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Task 2</title>
+    <style>
+        #selected {
+            border-width: 2px;
+            border-style: inset;
+        }
+    </style>
+</head>
+<body>
+<div class="list-describers">
+    <label for="text">Text:</label>
+    <input type="text" id="text">
+    <label for="color">Color:</label>
+    <input type="text" id="color">
+    <label for="marker">Marker:</label>
+    <select name="marker" id="marker">
+        <option value="disk">disk</option>
+        <option value="square">square</option>
+        <option value="circle">circle</option>
+    </select>
+</div>
+<div class="list-controls">
+    <button id="create">Create</button>
+    <button id="change">Change</button>
+    <button id="delete">Delete</button>
+</div>
+<ul id="list"></ul>
+<script>
+    (function(){
+        var list = document.getElementById('list');
+        var text = document.getElementById('text');
+        var color = document.getElementById('color');
+        var marker = document.getElementById('marker');
+
+        var selected = document.getElementById('selected');
+
+        var liStyler = function(li) {
+            li.innerHTML = text.value;
+            li.style.color = color.value;
+            li.style.listStyleType = marker.value;
+        };
+
+        //Adding
+        document.getElementById('create').addEventListener('click', function() {
+            var listItem = document.createElement('li');
+            liStyler(listItem);
+            list.appendChild(listItem);
+        });
+
+        //Selecting
+        list.addEventListener('click', function(el) {
+           if (el.target.tagName == 'LI') {
+               if (document.getElementById('selected')) {
+                   document.getElementById('selected').removeAttribute('id');
+               }
+               el.target.id = 'selected';
+               el.target.style.borderColor = color.value;
+           }
+        });
+
+        //Changing
+        document.getElementById('change').addEventListener('click', function() {
+            var selected = document.getElementById('selected');
+            liStyler(selected);
+        });
+
+        //Removing
+        document.getElementById('delete').addEventListener('click', function() {
+            var selected = document.getElementById('selected');
+            selected.parentNode.removeChild(selected);
+        });
+
+    })();
+
+</script>
+</body>
+</html>

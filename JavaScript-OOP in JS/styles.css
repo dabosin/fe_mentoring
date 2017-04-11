@@ -1,0 +1,87 @@
+body {
+  font-family: Verdana;
+}
+
+button {
+  cursor: pointer;
+}
+
+.wrapper {
+  width: 850px;
+  margin: 0 auto;
+}
+
+.canvas-controls {
+  width: 120px;
+  margin-right: 100px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.shape-control {
+  margin-bottom: 30px;
+  width: 100%;
+  border: 2px solid #000;
+  cursor: pointer;
+}
+
+.ellipse {
+  height: 120px;
+  border-radius: 60px
+}
+
+.rectangle {
+  height: 120px;
+}
+
+.line {
+
+}
+
+.color-label {
+  display: block;
+  margin: 30px 0 20px;
+}
+
+.color-picker {
+  width: 100%;
+  display: block;
+  cursor: pointer;
+}
+
+.clear-button {
+  width: 124px;
+  height: 40px;
+  margin-top: 21px;
+  font-size: 20px;
+  display: block;
+}
+
+.canvas-block {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.canvas {
+  border: 2px solid #000;
+  cursor: crosshair;
+  background: url('back1.jpg') 50% 50% no-repeat;
+  background-size: cover;
+}
+
+.json-button {
+  display: inline-block;
+  vertical-align: top;
+  width: 200px;
+  height: 40px;
+  margin: 20px 20px 20px 0;
+  font-size: 20px;
+}
+
+.canvas-json {
+  display: block;
+  width: 600px;
+  height: 150px;
+  resize: none;
+  border: 2px solid #000;
+}

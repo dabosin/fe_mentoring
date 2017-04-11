@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .map {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="map" class="map"></div>
+</body>
+<script type="text/javascript">
+function initMap() {
+    if (navigator.geolocation) {
+        function geoSuccess(position) {
+            var myCoords = {lat: position.coords.latitude, lng: position.coords.longitude};
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: myCoords,
+                zoom: 16
+            });
+
+            var marker = new google.maps.Marker({
+                position: myCoords,
+                map: map,
+                title: 'You are here'
+            });
+        }
+
+        function geoError(error) {
+            document.querySelector('.map').style.background = "url('http://anvictory.org/wp-content/uploads/2013/10/big-brother-sorm.jpg') 50% 50% no-repeat";
+            alert('ERROR(' + error.code + '): ' + error.message);
+        }
+
+        navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+    } else {
+        document.querySelector('.map').style.background = "url('http://anvictory.org/wp-content/uploads/2013/10/big-brother-sorm.jpg') 50% 50% no-repeat";
+    }
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTEfv18PpOSoUDnG804gk63ertNHjxYBA&callback=initMap"></script>
+</html>

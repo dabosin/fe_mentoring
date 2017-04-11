@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.wrapper {
+			width: 600px;
+			margin: 0 auto;
+			font-family: Verdana, sans-serif;
+		}
+
+		.input {
+			width: 500px;
+			margin-bottom: 30px; 
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		.count-button {
+			width: 80px;
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		.output {
+			text-align: center;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<input type="text" class="input" id="raw-expression" value="3.5 землекопа +4 поросенка *10 рублей - 5.5 $ /5 человек =">
+		<button class="count-button" id="count">Count</button>
+		<div class="output" id="output">Enter an expression</div>
+	</div>
+	<script>
+		(function() {
+
+			var rawExpression = document.getElementById('raw-expression');
+			var counter = document.getElementById('count');
+			var output = document.getElementById('output');
+
+			// [RF] : не работает если число = 0, попробуй сделать 2 регекспа для значений и операторов. будет код проще.
+			var re = /(\d+.\d+|\d+|[\+\-\/\*])/g;
+
+			var getResult = function(exp) {
+				var result = +exp[0]||0;
+				for(var i = 0; i <= exp.length-1; i++) {
+					switch(exp[i]) {
+						case '+':
+							result += +exp[i+1]||0;
+							break;
+						case '*':
+							result *= +exp[i+1];
+							break;
+						case '-':
+							result -= +exp[i+1]||0;
+							break;
+						case '/':
+							result /= +exp[i+1];
+							break;
+					}
+				}
+				return result;
+			}
+
+			counter.addEventListener('click', function() {
+				var expression = rawExpression.value.match(re);
+				if (expression) {
+					var result = getResult(expression);
+					output.innerHTML = "It's " + result;
+				} else {
+					output.innerHTML = "Nothing to calculate...";
+				}
+			});
+		})();
+	</script>
+</body>
+</html>

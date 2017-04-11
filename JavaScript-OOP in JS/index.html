@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luxury Vector Reactor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="canvas-controls">
+            <div class="canvas-shape-controls" id="shapes">
+                <div id="rectangle" class="shape-control rectangle" ></div>
+                <div id="ellipse" class="shape-control ellipse"></div>
+                <div id="line" class="shape-control line"></div>
+            </div>
+            <label for="color" class="color-label">Color:</label>
+            <input type="color" name="color" id="color" class="color-picker">
+            <button id="clear" class="clear-button">Clear</button>
+        </div>
+        <div class="canvas-block">
+            <canvas width="600" height="400" id="canvas" class="canvas"></canvas>
+            <div class="canvas-bottom">
+                <button id="save-to-json" class="json-button">Save to JSON</button>
+                <button id="load-from-json" class="json-button">Load from JSON</button>
+                <textarea name="json" id="json" class="canvas-json"></textarea>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="model.js"></script>
+<script src="controller.js"></script>
+<script src="init.js"></script>
+</html>
